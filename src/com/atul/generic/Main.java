@@ -23,5 +23,35 @@ public class Main {
         boolean same = Util.<Integer, String>compare(p1, p2);
 
         System.out.println("Both Pairs are same --> "  + same);
+
+        Box<Integer> integerBox = new Box<>();
+        integerBox.setType(new Integer(10));
+
+        /**
+         * Below statement will throw a compile time error, as the Types allowed in inspect method should be super classed by Number.
+         * */
+        //integerBox.inspect("some text");
+
+
+        /**
+         * Comparing two objects using Comparable interface.
+         * */
+        Integer [] array = new Integer[]{3,6,1,8};
+        Integer count = Util.countGreaterThan(array,4);
+        System.out.println("Numbers greater than the element are : " + count);
+
+
+        /**
+         * A concrete type is allowed as a type arguments in a generic type if it is the subtype.
+         * In below example, since Integer and Double both are subtypes of Number, both are allowed.
+         * */
+        Box<Number> numberBox = new Box<>();
+        numberBox.setType(new Integer(10)); // OK
+        numberBox.setType(new Double(2.3)); // OK
+
+
+
+
+
     }
 }

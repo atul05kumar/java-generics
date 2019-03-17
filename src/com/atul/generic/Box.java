@@ -15,4 +15,15 @@ public class Box<T> {
         return type;
     }
 
+    /**
+     * This method will only accept types which are subtypes of Number.
+     * For others, it will throw compilation error.
+     * This demonstrates the functionality of Bounded Type Parms in Generic types.
+     * */
+    public <U extends Number> void inspect(U u){
+        System.out.println("T: " + type.getClass().getName());
+        System.out.println("U: " + u.getClass().getName());
+    }
+
+
 }
