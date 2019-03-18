@@ -50,7 +50,15 @@ public class Main {
         numberBox.setType(new Double(2.3)); // OK
 
 
-
+        /**
+         * Recursive Generics to implement Fluent Builder Pattern.
+         * */
+        EmployeeBuilder pb = new EmployeeBuilder();
+        Person person = pb
+                .withName("Atul")
+                .worksAt("Walmart")
+                .build();
+        System.out.println(person);
 
 
     }
